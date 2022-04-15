@@ -71,23 +71,54 @@ export default function ProjectList()
     );
 }
 
-
 const styles = StyleSheet.create({
     project: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "white",
-        flexDirection: "row"
+        flexDirection: "row",
+        margin: 10,
+        marginTop: 10,
+
+        padding: 10,
+        borderWidth: 1,
+        borderColor: "white",
+        borderRadius: 5,
+        // Android
+        elevation: 2,
+        // iOS
+        shadowColor: 'rgba(0,0,0, .4)',
+        shadowOffset: { height: 1, width: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 4,
     },
     prjImgFrame: {
-        flex: 1
+        flex: 1,
+        // Android
+        elevation: 2,
+        // iOS
+        shadowColor: 'rgba(0,0,0, .4)',
+        shadowOffset: { height: 1, width: 1 },
+        shadowOpacity: 0.7,
+        shadowRadius: 7,
+        marginRight: 15
+    },
+    prjImg: {
+        flex: 1,
+        backgroundColor: "#ddd",
+        width: 100,
+        height: 100,
+        borderRadius: 150,
     },
     prjInfor: {
-        flexDirection: "column"
+        flex: 2,
+        flexDirection: "column",
+        padding: 10
     },
     prjName: {
-        flex: 1
+        flex: 1,
+        fontWeight: "bold"
     },
     prjDesc: {
         flex: 1

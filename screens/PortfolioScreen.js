@@ -31,11 +31,11 @@ export default function PortfolioScreen()
                 </Button>
             </View>
 
-            <View>
-                {
-                    showProject && <ProjectList />
-                }
-            </View>
+            {
+                showProject && <View style={styles.projectList}>
+                    <ProjectList />
+                </View>
+            }
         </View>
     );
 }
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         alignItems: 'center',
         padding: 10,
-        borderRadius: 25,
+        borderRadius: 20,
         borderWidth: 1,
         borderColor: "white",
         margin: 15,
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
         shadowRadius: 7,
     },
     avatarImage: {
-        display: "flex",
         backgroundColor: "#ddd",
         width: 150,
         height: 150,
@@ -96,5 +95,22 @@ const styles = StyleSheet.create({
         padding: 5,
         width: 150,
         alignSelf: "center"
+    },
+    projectList: {
+        width: "98%",
+        margin: 2,
+        height: 320,
+
+        backgroundColor: "white",
+        borderRadius: 2,
+        borderWidth: 1,
+        borderColor: "#bbbec4",
+        // Android
+        elevation: 2,
+        // iOS
+        shadowColor: 'rgba(0,0,0, .4)',
+        shadowOffset: { height: 1, width: 1 },
+        shadowOpacity: 0.7,
+        shadowRadius: 3,
     }
 });
