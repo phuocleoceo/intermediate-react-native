@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
+import ProjectList from "../components/ProjectList";
 import { Button } from "react-native-paper";
 import React, { useState } from "react";
 
@@ -28,6 +29,12 @@ export default function PortfolioScreen()
                 >
                     Portfolio
                 </Button>
+            </View>
+
+            <View>
+                {
+                    showProject && <ProjectList />
+                }
             </View>
         </View>
     );
