@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     sliderVal: {
-
+        fontSize: 17
     },
     sliderBar: {
         width: 300,
