@@ -10,13 +10,47 @@ export default function TipScreen()
     const [split, setSplit] = useState(1);
     const [tip, setTip] = useState(0.0);
     const [sliderValue, setSliderValue] = useState(0);
+    const [tipBoxHeight, setTipBoxHeight] = useState(120);
 
     useEffect(() =>
     {
-        const newTotal = (bill + tip) / split;
+        // Set chiều cao cho Tip Box
+        if (bill !== "")
+        {
+            setTipBoxHeight(370);
+            setTotal(0.0);
+        }
+        else
+        {
+            setTipBoxHeight(120);
+        }
+
+        const newTotal = (parseFloat(bill) + tip) / split;
         setTotal(newTotal);
     }, [bill, split, tip]);
 
+    useEffect(() =>
+    {
+        if (bill !== "")
+        {
+            setTip(parseFloat(bill) * sliderValue / 100);
+        }
+        else
+        {
+            setTip(0.0);
+        }
+    }, [sliderValue]);
+
+
+    const handleMinusSplit = () =>
+    {
+        if (split > 1) setSplit(split - 1);
+    };
+
+    const handlePlusSplit = () =>
+    {
+        setSplit(split + 1);
+    };
 
     return (
         <View style={styles.container}>
@@ -29,48 +63,53 @@ export default function TipScreen()
                 </Text>
             </View>
 
-            <View style={styles.tipBox}>
+            <View style={[styles.tipBox, { maxHeight: tipBoxHeight }]}>
                 <View style={styles.billText}>
                     <TextInput
                         label="Total Bill"
                         mode="outlined"
-                        onChangeText={num => setTotal(parseFloat(num))}
+                        onChangeText={num => setBill(num)}
                     />
                 </View>
 
-                <View style={styles.split}>
-                    <Text style={styles.splitLabel}>Split</Text>
+                {
+                    bill !== "" &&
+                    <View style={{ flex: 3 }}>
+                        <View style={styles.split}>
+                            <Text style={styles.splitLabel}>Split</Text>
 
-                    <TouchableOpacity style={styles.splitButton}>
-                        <Text style={styles.splitButtonText}>-</Text>
-                    </TouchableOpacity>
+                            <TouchableOpacity style={styles.splitButton} onPress={handleMinusSplit}>
+                                <Text style={styles.splitButtonText}>-</Text>
+                            </TouchableOpacity>
 
-                    <Text style={styles.splitValue}>{split}</Text>
+                            <Text style={styles.splitValue}>{split}</Text>
 
-                    <TouchableOpacity style={styles.splitButton}>
-                        <Text style={styles.splitButtonText}>+</Text>
-                    </TouchableOpacity>
-                </View>
+                            <TouchableOpacity style={styles.splitButton} onPress={handlePlusSplit}>
+                                <Text style={styles.splitButtonText}>+</Text>
+                            </TouchableOpacity>
+                        </View>
 
-                <View style={styles.tipText}>
-                    <Text style={styles.tipLabel}>Tip</Text>
-                    <Text style={styles.tipValue}>{"$ " + tip.toFixed(2)}</Text>
-                </View>
+                        <View style={styles.tipText}>
+                            <Text style={styles.tipLabel}>Tip</Text>
+                            <Text style={styles.tipValue}>{"$ " + tip.toFixed(2)}</Text>
+                        </View>
 
-                <View style={styles.tipSlider}>
-                    <Text style={styles.sliderVal}>{sliderValue + " %"}</Text>
-                    <Slider
-                        maximumValue={100}
-                        minimumValue={0}
-                        minimumTrackTintColor="#f2bdf2"
-                        maximumTrackTintColor="#f2bdf2"
-                        step={1}
-                        onSlidingComplete={(value) => setSliderValue(value)}
-                        thumbTintColor="#733573"
-                        style={styles.sliderBar}
-                    />
-                    {/* onValueChange or onSlidingComplete*/}
-                </View>
+                        <View style={styles.tipSlider}>
+                            <Text style={styles.sliderVal}>{sliderValue + " %"}</Text>
+                            <Slider
+                                maximumValue={100}
+                                minimumValue={0}
+                                minimumTrackTintColor="#f2bdf2"
+                                maximumTrackTintColor="#f2bdf2"
+                                step={1}
+                                onSlidingComplete={(value) => setSliderValue(value)}
+                                thumbTintColor="#733573"
+                                style={styles.sliderBar}
+                            />
+                            {/* onValueChange or onSlidingComplete*/}
+                        </View>
+                    </View>
+                }
             </View>
         </View>
     );
@@ -111,7 +150,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 1,
         borderColor: "#cfcacf",
-        maxHeight: 370
+        // maxHeight: 370
     },
     // ---------------------------------------------
     billText: {
