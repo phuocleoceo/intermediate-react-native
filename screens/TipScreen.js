@@ -67,7 +67,7 @@ export default function TipScreen()
             <View style={[styles.tipBox, { maxHeight: tipBoxHeight }]}>
                 <View style={styles.billText}>
                     <TextInput
-                        label="Total Bill"
+                        label="Enter Bill"
                         mode="outlined"
                         onChangeText={num => setBill(num)}
                     />
