@@ -18,15 +18,16 @@ export default function TipScreen()
         if (bill !== "")
         {
             setTipBoxHeight(370);
-            setTotal(0.0);
+            const newTotal = (parseFloat(bill) + tip) / split;
+            setTotal(newTotal);
         }
         else
         {
             setTipBoxHeight(120);
+            setTotal(0.0);
         }
 
-        const newTotal = (parseFloat(bill) + tip) / split;
-        setTotal(newTotal);
+
     }, [bill, split, tip]);
 
     useEffect(() =>
