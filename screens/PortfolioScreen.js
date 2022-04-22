@@ -70,36 +70,36 @@ const styles = StyleSheet.create({
     },
     avatarImage: {
         backgroundColor: "#ddd",
-        width: 150,
-        height: 150,
-        borderRadius: 150,
+        width: 140,
+        height: 140,
+        borderRadius: 140,
     },
     name: {
         fontSize: 30,
         fontWeight: "bold",
         color: "#6200ed",
-        margin: 10
+        margin: 7
     },
     position: {
-        fontSize: 15,
+        fontSize: 14,
         alignSelf: "center",
         margin: 7
     },
     tag: {
-        fontSize: 15,
+        fontSize: 14,
         alignSelf: "center",
         margin: 7
     },
     showButton: {
-        margin: 10,
+        margin: 8,
         padding: 5,
-        width: 150,
+        width: 140,
         alignSelf: "center"
     },
     projectList: {
         width: "98%",
-        margin: 2,
-        height: 320,
+        margin: 3,
+        height: 290,
 
         backgroundColor: "white",
         borderRadius: 2,

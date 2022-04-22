@@ -69,6 +69,7 @@ export default function TipScreen()
                     <TextInput
                         label="Enter Bill"
                         mode="outlined"
+                        left={<TextInput.Icon name="currency-usd" />}
                         onChangeText={num => setBill(num)}
                     />
                 </View>
