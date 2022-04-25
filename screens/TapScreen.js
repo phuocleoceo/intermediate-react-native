@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React, { useState } from "react";
+import AppBar from "../components/AppBar";
 
 export default function TapScreen()
 {
@@ -7,16 +8,19 @@ export default function TapScreen()
 
     return (
         <View style={styles.container}>
-            <Text style={styles.countText}>
-                {count}
-            </Text>
+            <AppBar title="Tap Screen" />
+            <View style={styles.content}>
+                <Text style={styles.countText}>
+                    {count}
+                </Text>
 
-            <TouchableOpacity
-                onPress={() => setCount(count + 1)}
-                style={styles.tapButton}
-            >
-                <Text style={styles.tapText}>Tap</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => setCount(count + 1)}
+                    style={styles.tapButton}
+                >
+                    <Text style={styles.tapText}>Tap</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -24,9 +28,12 @@ export default function TapScreen()
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "white"
+    },
+    content: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
     },
     countText: {
         fontSize: 50,
