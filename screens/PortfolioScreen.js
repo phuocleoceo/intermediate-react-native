@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import ProjectList from "../components/ProjectList";
 import { Button } from "react-native-paper";
 import React, { useState } from "react";
+import AppBar from '../components/AppBar';
 
 export default function PortfolioScreen()
 {
@@ -10,32 +11,36 @@ export default function PortfolioScreen()
     const handleShow = () => setShowProject(!showProject);
 
     return (
-        <View style={styles.container}>
-            <View style={styles.avatarView}>
-                <Image
-                    style={styles.avatarImage}
-                    source={require("../assets/phuocleoceo.jpg")}
-                />
-            </View>
+        <View style={{ flex: 1 }}>
+            <AppBar title="Portfolio Screen" />
 
-            <View style={styles.infor}>
-                <Text style={styles.name}>phuocleoceo</Text>
-                <Text style={styles.position}>Fullstack Developer</Text>
-                <Text style={styles.tag}>@themilesCompose</Text>
-                <Button
-                    mode="contained"
-                    onPress={handleShow}
-                    style={styles.showButton}
-                >
-                    Portfolio
-                </Button>
-            </View>
-
-            {
-                showProject && <View style={styles.projectList}>
-                    <ProjectList />
+            <View style={styles.container}>
+                <View style={styles.avatarView}>
+                    <Image
+                        style={styles.avatarImage}
+                        source={require("../assets/phuocleoceo.jpg")}
+                    />
                 </View>
-            }
+
+                <View style={styles.infor}>
+                    <Text style={styles.name}>phuocleoceo</Text>
+                    <Text style={styles.position}>Fullstack Developer</Text>
+                    <Text style={styles.tag}>@themilesCompose</Text>
+                    <Button
+                        mode="contained"
+                        onPress={handleShow}
+                        style={styles.showButton}
+                    >
+                        Portfolio
+                    </Button>
+                </View>
+
+                {
+                    showProject && <View style={styles.projectList}>
+                        <ProjectList />
+                    </View>
+                }
+            </View>
         </View>
     );
 }
@@ -45,12 +50,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "white",
         alignItems: 'center',
-        padding: 10,
+        padding: 9,
         borderRadius: 20,
         borderWidth: 1,
         borderColor: "white",
-        margin: 15,
-        marginTop: 30,
+        margin: 12,
         // Android
         elevation: 2,
         // iOS
@@ -70,12 +74,12 @@ const styles = StyleSheet.create({
     },
     avatarImage: {
         backgroundColor: "#ddd",
-        width: 140,
-        height: 140,
-        borderRadius: 140,
+        width: 120,
+        height: 120,
+        borderRadius: 120,
     },
     name: {
-        fontSize: 30,
+        fontSize: 25,
         fontWeight: "bold",
         color: "#6200ed",
         margin: 7
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
     position: {
         fontSize: 14,
         alignSelf: "center",
-        margin: 7
+        margin: 5
     },
     tag: {
         fontSize: 14,
@@ -91,15 +95,15 @@ const styles = StyleSheet.create({
         margin: 7
     },
     showButton: {
-        margin: 8,
-        padding: 5,
+        margin: 7,
+        padding: 3,
         width: 140,
         alignSelf: "center"
     },
     projectList: {
         width: "98%",
         margin: 3,
-        height: 290,
+        height: 270,
 
         backgroundColor: "white",
         borderRadius: 2,

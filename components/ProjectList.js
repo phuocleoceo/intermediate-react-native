@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
     prjImg: {
         flex: 1,
         backgroundColor: "#ddd",
-        width: 100,
-        height: 100,
-        borderRadius: 150,
+        width: 90,
+        height: 90,
+        borderRadius: 90,
     },
     prjInfor: {
         flex: 2,

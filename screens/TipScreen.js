@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Slider from '@react-native-community/slider';
 import React, { useState, useEffect } from "react";
 import { TextInput } from 'react-native-paper';
+import AppBar from '../components/AppBar';
 
 export default function TipScreen()
 {
@@ -55,6 +56,7 @@ export default function TipScreen()
 
     return (
         <View style={styles.container}>
+            <AppBar title="Tap Screen" />
             <View style={styles.totalBox}>
                 <Text style={styles.totalTitle}>
                     Total Per Person
@@ -129,7 +131,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         padding: 10,
         margin: 25,
-        marginTop: 35,
         borderRadius: 15,
         backgroundColor: "#ef9ef7",
         maxHeight: 150
